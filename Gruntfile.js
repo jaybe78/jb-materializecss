@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       expanded: {
         // Target options
         options: {
+          implementation: 'sass',
           outputStyle: 'expanded',
           sourcemap: false
         },
@@ -37,6 +38,7 @@ module.exports = function(grunt) {
 
       min: {
         options: {
+          implementation: 'sass',
           outputStyle: 'compressed',
           sourcemap: false
         },
@@ -48,6 +50,7 @@ module.exports = function(grunt) {
       // Compile ghpages css
       gh: {
         options: {
+          implementation: 'sass',
           outputStyle: 'compressed',
           sourcemap: false
         },
@@ -59,6 +62,7 @@ module.exports = function(grunt) {
       // Compile bin css
       bin: {
         options: {
+          implementation: 'sass',
           outputStyle: 'expanded',
           sourcemap: false
         },
@@ -73,7 +77,7 @@ module.exports = function(grunt) {
       options: {
         processors: [
           require('autoprefixer')({
-            browsers: [
+            overrideBrowserslist: [
               'last 2 versions',
               'Chrome >= 30',
               'Firefox >= 30',
@@ -101,11 +105,11 @@ module.exports = function(grunt) {
       options: {
         sourceMap: false,
         plugins: [
-          'transform-es2015-arrow-functions',
-          'transform-es2015-block-scoping',
-          'transform-es2015-classes',
-          'transform-es2015-template-literals',
-          'transform-es2015-object-super'
+          '@babel/transform-arrow-functions',
+          '@babel/transform-block-scoping',
+          '@babel/transform-classes',
+          '@babel/transform-template-literals',
+          '@babel/transform-object-super'
         ]
       },
       bin: {
